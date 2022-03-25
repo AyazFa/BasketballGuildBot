@@ -10,16 +10,18 @@ namespace BasketBot
 {
     class Program
     {
+        public static IConfigurationRoot Configuration { get; private set; }
+        
         static async Task Main(string[] args)
         {
-            var configuration = new ConfigurationBuilder()
+            Configuration = new ConfigurationBuilder()
                 .AddJsonFile($"appsettings.development.json", true)
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddEnvironmentVariables()
                 .AddCommandLine(args ?? new string[] { })
                 .Build();
 
-            var token = configuration.GetSection("Token").Value;
+            var token = Configuration.GetSection("Token").Value;
             var botClient = new TelegramBotClient(token);
 
             using var cts = new CancellationTokenSource();
