@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using BasketBot.Helpers;
 using Telegram.Bot;
 using Telegram.Bot.Exceptions;
 using Telegram.Bot.Types;
@@ -66,11 +67,12 @@ namespace BasketBot
             {
                 "/sendpoll" => await botClient.SendPollAsync(
                     chatId: chatId,
-                    question: "Играем завтра на АСФ?",
+                    isAnonymous: false,
+                    question: QuestionHelper.GetPollQuestionForPlace(GymType.Asf),
                     options: new []
                     {
-                        "Да",
-                        "Нет"
+                        "Иду",
+                        "Не иду"
                     },
                     cancellationToken: cancellationToken),
                 _ => await botClient.SendTextMessageAsync(
