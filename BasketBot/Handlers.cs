@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using BasketBot.Helpers;
+using Microsoft.Extensions.Configuration;
 using Telegram.Bot;
 using Telegram.Bot.Exceptions;
 using Telegram.Bot.Types;
@@ -10,6 +12,8 @@ namespace BasketBot
 {
     public class Handlers
     {
+        static readonly int[] guildChatIds = Program.Configuration.GetSection("GuildChatIds").Get<int[]>();
+        
         public static async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {
             var handler = update.Type switch
@@ -21,6 +25,7 @@ namespace BasketBot
                 // UpdateType.PreCheckoutQuery:
                 // UpdateType.Poll:
                 UpdateType.Message            => BotOnMessageReceived(botClient, update.Message!, cancellationToken),
+                UpdateType.MyChatMember       => BotOnActionToChat(botClient, update.MyChatMember, cancellationToken),
                 // UpdateType.EditedMessage      => BotOnMessageReceived(botClient, update.EditedMessage!),
                 // UpdateType.CallbackQuery      => BotOnCallbackQueryReceived(botClient, update.CallbackQuery!),
                 // UpdateType.InlineQuery        => BotOnInlineQueryReceived(botClient, update.InlineQuery!),
@@ -36,6 +41,17 @@ namespace BasketBot
             {
                 await HandleErrorAsync(botClient, exception, cancellationToken);
             }
+        }
+
+        private static async Task BotOnActionToChat(ITelegramBotClient botClient, ChatMemberUpdated myChat, CancellationToken cancellationToken)
+        {
+            var chatId = myChat.Chat.Id;
+            var botChatId = myChat.From.Id;
+            
+            await botClient.SendTextMessageAsync(
+                chatId: botChatId,
+                text: "Bot added to Chat with Id:\n" + chatId,
+                cancellationToken: cancellationToken);
         }
 
         public static Task HandleErrorAsync(ITelegramBotClient botClient, Exception exception, CancellationToken cancellationToken)
@@ -64,13 +80,14 @@ namespace BasketBot
 
             var sentMessage = messageText switch
             {
-                "/sendpoll" => await botClient.SendPollAsync(
-                    chatId: chatId,
-                    question: "Играем завтра на АСФ?",
+                "/sp" => await botClient.SendPollAsync(
+                    chatId: guildChatIds[0],
+                    isAnonymous: false,
+                    question: QuestionHelper.GetPollQuestionForPlace(GymType.Asf),
                     options: new []
                     {
-                        "Да",
-                        "Нет"
+                        "Иду",
+                        "Не иду"
                     },
                     cancellationToken: cancellationToken),
                 _ => await botClient.SendTextMessageAsync(
