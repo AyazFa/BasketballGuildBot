@@ -12,7 +12,7 @@ namespace BasketBot
 {
     public class Handlers
     {
-        static readonly int[] guildChatIds = Program.Configuration.GetSection("GuildChatIds").Get<int[]>();
+        static readonly long[] guildChatIds = Program.Configuration.GetSection("GuildChatIds").Get<long[]>();
         
         public static async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
         {

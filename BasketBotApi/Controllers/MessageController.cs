@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using BasketBotApi.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Telegram.Bot.Types;
 
 namespace BasketBotApi.Controllers;
@@ -8,11 +9,17 @@ namespace BasketBotApi.Controllers;
 [Route("/")]
 public class MessageController : ControllerBase
 {
+    private ILogger<MessageController> logger;
+
+    public MessageController(ILogger<MessageController> logger)
+    {
+        this.logger = logger;
+    }
+
     [HttpGet]
     public string Get() 
     {
-        //Здесь мы пишем, что будет видно если зайти на адрес,
-        //указаную в ngrok и launchSettings
+        logger.LogInformation("Telegram bot was started");
         return "Telegram bot was started";
     }
     
