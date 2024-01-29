@@ -14,12 +14,12 @@ public class CreatePollCommand : Command
     {
         var chatId = message.Chat.Id;
         var messageText = message.Text;
-
+        
         Console.WriteLine($"Received a '{messageText}' message in chat {chatId}.");
         await client.SendPollAsync(
             chatId: AppSettings.GuildChatIds[0],
             isAnonymous: false,
-            question: QuestionHelper.GetPollQuestionForPlace(GymType.Asf),
+            question: QuestionHelper.GetPollQuestionForPlace(GymType.Asf, DateTime.Today),
             options: new []
             {
                 "Иду",

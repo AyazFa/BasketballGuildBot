@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketBot", "BasketBot\Bask
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketBotApi", "BasketBotApi\BasketBotApi.csproj", "{C7F69123-FE2A-422B-B75D-88FDF452E0F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketBotTests", "BasketBotTests\BasketBotTests.csproj", "{842747E7-775B-449A-B587-0C47AA22C38E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{C7F69123-FE2A-422B-B75D-88FDF452E0F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7F69123-FE2A-422B-B75D-88FDF452E0F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7F69123-FE2A-422B-B75D-88FDF452E0F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{842747E7-775B-449A-B587-0C47AA22C38E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{842747E7-775B-449A-B587-0C47AA22C38E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{842747E7-775B-449A-B587-0C47AA22C38E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{842747E7-775B-449A-B587-0C47AA22C38E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
