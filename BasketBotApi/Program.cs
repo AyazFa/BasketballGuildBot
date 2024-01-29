@@ -22,7 +22,7 @@ public class Program
         
         // Add services to the container.
         Bot.GetBotClientAsync();
-
+        
         builder.Services.AddControllers().AddNewtonsoftJson();
         builder.Configuration.AddJsonFile($"appsettings.development.json", true)
             .SetBasePath(Directory.GetCurrentDirectory())
@@ -35,10 +35,8 @@ public class Program
         app.UseDeveloperExceptionPage();
 
         // Configure the HTTP request pipeline.
-
+        
         app.UseHttpsRedirection();
-
-        app.UseAuthorization();
         
         app.MapControllers();
 

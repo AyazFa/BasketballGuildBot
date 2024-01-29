@@ -1,11 +1,13 @@
 ﻿using System.Threading.Tasks;
 using BasketBotApi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Telegram.Bot.Types;
 
 namespace BasketBotApi.Controllers;
 
+[AllowAnonymous]
 [Route("/")]
 public class MessageController : ControllerBase
 {

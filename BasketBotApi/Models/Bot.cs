@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using BasketBotApi.Models.Commands;
 using Telegram.Bot;
+using Telegram.Bot.Types.Enums;
+using Telegram.Bot.Types.InputFiles;
 
 namespace BasketBotApi.Models;
 
@@ -25,8 +28,8 @@ public class Bot
         //TODO: Add more commands
 
         botClient = new TelegramBotClient(AppSettings.Key);
-        string hook = string.Format(AppSettings.Url, "api/message/update");
-        await botClient.SetWebhookAsync(hook);
+        InputFileStream certFile = new InputFileStream(File.OpenRead(@".\cert\wild_.BasketballGuildBot.somee.com.pfx"));
+        await botClient.SetWebhookAsync("https://BasketballGuildBot.somee.com/api/message/update", certFile, allowedUpdates: new List<UpdateType>());
         return botClient;
     }
 }
