@@ -4,9 +4,9 @@ using Telegram.Bot.Types;
 
 namespace BasketBotApi.Models.Commands;
 
-public class StartCommand : Command
+public class CollectMoneyCommand : Command
 {
-    public override string Name => @"/start";
+    public override string Name => @"/cm";
 
     public override bool Contains(Message message)
     {
@@ -18,7 +18,8 @@ public class StartCommand : Command
 
     public override async Task Execute(Message message, TelegramBotClient botClient)
     {
-        var chatId = message.Chat.Id;
-        await botClient.SendTextMessageAsync(chatId, "Basketball is the best game with ball", parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown);
-    }
+        await botClient.SendTextMessageAsync(AppSettings.GuildChatIds[0],
+            "Скидывайте по 330\u20bd мне на карту Тиньков по номеру телефона +79279277179",
+            parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown);
+    }      
 }

@@ -15,7 +15,6 @@ public class CreatePollCommand : Command
         var chatId = message.Chat.Id;
         var messageText = message.Text;
         
-        Console.WriteLine($"Received a '{messageText}' message in chat {chatId}.");
         await client.SendPollAsync(
             chatId: AppSettings.GuildChatIds[0],
             isAnonymous: false,

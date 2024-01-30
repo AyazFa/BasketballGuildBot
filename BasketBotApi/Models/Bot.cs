@@ -24,8 +24,9 @@ public class Bot
 
         commandsList = new List<Command>();
         commandsList.Add(new StartCommand());
-        commandsList.Add(new CreatePollCommand());        
-        //TODO: Add more commands
+        commandsList.Add(new CreatePollCommand()); 
+        commandsList.Add(new TakeJerseyCommand());  
+        commandsList.Add(new CollectMoneyCommand());         
 
         botClient = new TelegramBotClient(AppSettings.Key);
         InputFileStream certFile = new InputFileStream(File.OpenRead(@".\cert\wild_.BasketballGuildBot.somee.com.pfx"));
