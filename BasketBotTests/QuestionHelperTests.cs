@@ -4,7 +4,7 @@ namespace BasketBotTests;
 
 public class QuestionHelperTests
 {
-    const int daysFromTodayTillThursday = 3;
+    const int daysFromTodayTillThursday = 2;
     
     [SetUp]
     public void Setup()

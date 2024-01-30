@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Net.Http;
+using System.Threading.Tasks;
 using BasketBotApi.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -19,10 +20,13 @@ public class MessageController : ControllerBase
     }
 
     [HttpGet]
-    public string Get() 
+    public async Task<string> Get() 
     {
-        logger.LogInformation("Telegram bot was started");
-        return "Telegram bot was started";
+        var client = new HttpClient();
+        var queryString = $"https://api.telegram.org/bot{AppSettings.Key}/setwebhook?url={AppSettings.Url}/api/message/update";
+        var response = await client.GetAsync(queryString);
+        var content = await response.Content.ReadAsStringAsync(); 
+        return content;
     }
     
     [Route("api/message/update")]

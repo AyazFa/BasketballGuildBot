@@ -2,7 +2,7 @@
 
 public class AppSettings
 {
-    public static string Url { get; set; } = "https://BasketballGuildBot.somee.com/{0}";
+    public static string Url { get; set; } = "https://BasketballGuildBot.somee.com";
     
     public static string Key { get; set; } = "5109422101:AAEG6S0XNhimPs6C3MPPSHifM4LBV8fYMYM";
 
