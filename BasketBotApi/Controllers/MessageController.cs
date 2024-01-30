@@ -22,11 +22,7 @@ public class MessageController : ControllerBase
     [HttpGet]
     public async Task<string> Get() 
     {
-        var client = new HttpClient();
-        var queryString = $"https://api.telegram.org/bot{AppSettings.Key}/setwebhook?url={AppSettings.Url}/api/message/update";
-        var response = await client.GetAsync(queryString);
-        var content = await response.Content.ReadAsStringAsync(); 
-        return content;
+        return await SetWebHook();
     }
     
     [Route("api/message/update")]
@@ -38,6 +34,8 @@ public class MessageController : ControllerBase
         var commands = Bot.Commands;
         var message = update.Message;
         var botClient = await Bot.GetBotClientAsync();
+        await SetWebHook();
+        await SetWebHook();
 
         foreach (var command in commands)
         {
@@ -48,5 +46,13 @@ public class MessageController : ControllerBase
             }
         }
         return Ok();
+    }
+
+    private async Task<string> SetWebHook()
+    {
+        var client = new HttpClient();
+        var queryString = $"https://api.telegram.org/bot{AppSettings.Key}/setwebhook?url={AppSettings.Url}/api/message/update";
+        var response = await client.GetAsync(queryString);
+        return await response.Content.ReadAsStringAsync();
     }
 }

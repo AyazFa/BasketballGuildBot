@@ -9,7 +9,10 @@ namespace BasketBotApi.Helpers
         {
             if (gymType == GymType.Asf)
             {
-                return $"В четверг {GetTrainingDate(todayDate)} тренировка на АСФ:";
+                var trainingDate = GetTrainingDate(todayDate);
+                var day = trainingDate.Day < 10 ? string.Concat("0", trainingDate.Day) : trainingDate.Day.ToString();
+                var month = trainingDate.Month < 10 ? string.Concat("0", trainingDate.Month) : trainingDate.Month.ToString();
+                return $"В четверг {day}.{month}.{trainingDate.Year} в 21:30 тренировка на АСФ:";
             }
 
             return $"Пока нет тренировки в это время";
@@ -18,9 +21,7 @@ namespace BasketBotApi.Helpers
         public static DateTime GetTrainingDate(DateTime todayDate)
         {
             var delta = DayOfWeek.Thursday - todayDate.DayOfWeek;
-            var date = todayDate
-                .AddDays(delta >= 0 ? delta : (7 + delta)).AddHours(21).AddMinutes(30);
-            return DateTime.ParseExact(date.ToString(CultureInfo.InvariantCulture), "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture);
+            return todayDate.AddDays(delta >= 0 ? delta : (7 + delta)).AddHours(21).AddMinutes(30);
         }
     }
 }

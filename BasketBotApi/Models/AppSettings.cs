@@ -11,5 +11,5 @@ public class AppSettings
     /// -654532921 - тестовая группа с ботом
     /// -956790495 - идентификатор бота
     /// </summary>
-    public static long[] GuildChatIds { get; set; } = new[] { -654532921, -1001730302996, -654532922};
+    public static long[] GuildChatIds { get; set; } = new[] { -1001730302996, -654532921, -654532922};
 }
