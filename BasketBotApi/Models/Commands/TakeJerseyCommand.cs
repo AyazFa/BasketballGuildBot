@@ -18,7 +18,7 @@ public class TakeJerseyCommand : Command
 
     public override async Task Execute(Message message, TelegramBotClient botClient)
     {
-        await botClient.SendTextMessageAsync(AppSettings.GuildChatIds[1],
+        await botClient.SendTextMessageAsync(AppSettings.GuildChatIds[0],
             "\u2757\ufe0fВозьмите по светлой и темной футболке (не цветные)",
             parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown);
     }    
