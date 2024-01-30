@@ -18,8 +18,8 @@ public class CollectMoneyCommand : Command
 
     public override async Task Execute(Message message, TelegramBotClient botClient)
     {
-        await botClient.SendTextMessageAsync(AppSettings.GuildChatIds[0],
-            "Скидывайте по 330\u20bd мне на карту Тиньков по номеру телефона +79279277179",
+        await botClient.SendTextMessageAsync(AppSettings.GuildChatIds[1],
+            "Скидывайте по 330\u20bd @AyazFaizullin на карту Тиньков по номеру телефона +79279277179",
             parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown);
     }      
 }

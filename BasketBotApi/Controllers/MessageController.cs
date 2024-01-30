@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using BasketBotApi.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Telegram.Bot.Types;
 
 namespace BasketBotApi.Controllers;
@@ -12,17 +11,10 @@ namespace BasketBotApi.Controllers;
 [Route("/")]
 public class MessageController : ControllerBase
 {
-    private ILogger<MessageController> logger;
-
-    public MessageController(ILogger<MessageController> logger)
-    {
-        this.logger = logger;
-    }
-
     [HttpGet]
-    public async Task<string> Get() 
+    public Task<string> Get() 
     {
-        return await SetWebHook();
+        return SetWebHook();
     }
     
     [Route("api/message/update")]
