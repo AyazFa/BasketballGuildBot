@@ -1,9 +1,15 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 
 namespace BasketBotApi.Models.Commands;
 
+/// <summary>
+/// Команда для сообщения со сбором денег
+/// /cmamount, где amount - сумма для сбора
+/// Например /cm300
+/// </summary>
 public class CollectMoneyCommand : Command
 {
     public override string Name => @"/cm";
@@ -18,8 +24,10 @@ public class CollectMoneyCommand : Command
 
     public override async Task Execute(Message message, TelegramBotClient botClient)
     {
+        var messageText = message.Text;
+        var amount = messageText!.Substring(messageText.IndexOf(Name, StringComparison.Ordinal) + Name.Length);
         await botClient.SendTextMessageAsync(AppSettings.GuildChatIds[0],
-            "Скидывайте по 330\u20bd @AyazFaizullin на карту Тиньков по номеру телефона +79279277179",
+            $"Скидывайте по {amount}\u20bd @AyazFaizullin на карту Тиньков по номеру телефона +79279277179",
             parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown);
     }      
 }
