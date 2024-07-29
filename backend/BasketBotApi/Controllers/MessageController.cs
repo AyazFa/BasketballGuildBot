@@ -27,7 +27,6 @@ public class MessageController : ControllerBase
         var message = update.Message;
         var botClient = await Bot.GetBotClientAsync();
         await SetWebHook();
-        await SetWebHook();
 
         foreach (var command in commands)
         {

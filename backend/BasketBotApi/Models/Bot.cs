@@ -29,8 +29,8 @@ public class Bot
         commandsList.Add(new CollectMoneyCommand());         
 
         botClient = new TelegramBotClient(AppSettings.Key);
-        InputFileStream certFile = new InputFileStream(File.OpenRead(@".\cert\wild_.BasketballGuildBot.somee.com.pfx"));
-        await botClient.SetWebhookAsync("https://BasketballGuildBot.somee.com/api/message/update", certFile, allowedUpdates: new List<UpdateType>());
+        /*InputFileStream certFile = new InputFileStream(File.OpenRead(@".\cert\wild_.BasketballGuildBot.somee.com.pfx"));
+        await botClient.SetWebhookAsync("https://BasketballGuildBot.somee.com/api/message/update", certFile, allowedUpdates: new List<UpdateType>());*/
         return botClient;
     }
 }

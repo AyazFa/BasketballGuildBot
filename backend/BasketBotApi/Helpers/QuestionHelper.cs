@@ -14,7 +14,7 @@ namespace BasketBotApi.Helpers
                 case GymType.Asf:
                     return  $"В четверг {day}.{month}.{trainingDate.Year} в 21:30 тренировка на АСФ:";                    
                 case GymType.YourGym:
-                    return  $"Во вторник {day}.{month}.{trainingDate.Year} в 20:00 тренировка в с/з Твой Зал:";                    
+                    return  $"Во вторник {day}.{month}.{trainingDate.Year} в 22:00 тренировка в с/з Твой Зал:";                    
                 default:
                     return $"Пока нет тренировки в это время";
             }

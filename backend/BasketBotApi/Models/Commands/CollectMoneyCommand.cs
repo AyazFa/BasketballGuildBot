@@ -26,6 +26,10 @@ public class CollectMoneyCommand : Command
     {
         var messageText = message.Text;
         var amount = messageText!.Substring(messageText.IndexOf(Name, StringComparison.Ordinal) + Name.Length);
+        if (string.IsNullOrEmpty(amount))
+        {
+            amount = "330";
+        }
         await botClient.SendTextMessageAsync(AppSettings.GuildChatIds[0],
             $"Скидывайте по {amount}\u20bd @AyazFaizullin на карту Тиньков по номеру телефона +79279277179",
             parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown);
