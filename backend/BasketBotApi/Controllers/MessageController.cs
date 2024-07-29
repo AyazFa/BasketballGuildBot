@@ -1,19 +1,20 @@
-﻿using System.Threading.Tasks;
+﻿using System.Net.Http;
+using System.Threading.Tasks;
 using BasketBotApi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Telegram.Bot.Types;
 
 namespace BasketBotApi.Controllers;
 
+[AllowAnonymous]
 [Route("/")]
 public class MessageController : ControllerBase
 {
     [HttpGet]
-    public string Get() 
+    public Task<string> Get() 
     {
-        //Здесь мы пишем, что будет видно если зайти на адрес,
-        //указаную в ngrok и launchSettings
-        return "Telegram bot was started";
+        return SetWebHook();
     }
     
     [Route("api/message/update")]
@@ -25,6 +26,7 @@ public class MessageController : ControllerBase
         var commands = Bot.Commands;
         var message = update.Message;
         var botClient = await Bot.GetBotClientAsync();
+        await SetWebHook();
 
         foreach (var command in commands)
         {
@@ -35,5 +37,13 @@ public class MessageController : ControllerBase
             }
         }
         return Ok();
+    }
+
+    private async Task<string> SetWebHook()
+    {
+        var client = new HttpClient();
+        var queryString = $"https://api.telegram.org/bot{AppSettings.Key}/setwebhook?url={AppSettings.Url}/api/message/update";
+        var response = await client.GetAsync(queryString);
+        return await response.Content.ReadAsStringAsync();
     }
 }
