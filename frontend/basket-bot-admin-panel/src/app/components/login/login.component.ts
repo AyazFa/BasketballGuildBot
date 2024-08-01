@@ -19,9 +19,8 @@ export class LoginComponent implements OnInit {
   }
 
   submitLogin() {
-    console.log('We are in submit')
     this.authorizationService.login(this.loginForm.value).subscribe({
-      next: () => this.router.navigate(['admin']),
+      next: () => this.router.navigate(['persons']),
       error: (err) => alert(err.message)
     });
   }
@@ -34,6 +33,10 @@ export class LoginComponent implements OnInit {
         Validators.required, 
         Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)
       ])
-    })
+    });
+
+    if (this.authorizationService.isLoggedIn()){
+      this.router.navigate(['persons'])
+    }
   }
 }

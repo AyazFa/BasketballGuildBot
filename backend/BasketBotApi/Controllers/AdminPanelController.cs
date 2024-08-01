@@ -16,6 +16,7 @@ public class AdminPanelController
         {
             new Player
             {
+                Id = 1,
                 Name = "Test Player"
             }
         };

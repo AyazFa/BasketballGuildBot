@@ -28,4 +28,8 @@ export class AuthorizationService {
     }
     return throwError(() => new Error('Login failed'))
   }
+
+  logout() {
+    this.router.navigate(['login'])
+  }
 }
