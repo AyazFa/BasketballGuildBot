@@ -14,6 +14,17 @@ public class Program
         var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
         logger.Debug("init main");
         var builder = WebApplication.CreateBuilder(args);
+        
+        builder.Services.AddCors(options =>
+        {
+            options.AddDefaultPolicy(
+                policy =>
+                {
+                    policy.WithOrigins("http://localhost:4200");
+                });
+        });
+        
+        builder.Services.AddControllers();
 
         // NLog: Setup NLog for Dependency injection
         builder.Logging.ClearProviders();
@@ -36,7 +47,13 @@ public class Program
         
         app.UseHttpsRedirection();
         
+        app.UseCors();
+        
         app.MapControllers();
+        
+        app.MapControllerRoute(
+            name: "default",
+            pattern: "{controller=Home}/{action=Index}/{id?}");        
 
         app.Run();
     }

@@ -1,8 +1,10 @@
 <button type="button" class="btn btn-primary btn-lg float-end" (click)="logout()" data-mdb-ripple-init>Logout</button>
-<div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <button type="button" class="btn btn-primary" data-mdb-ripple-init>Button</button>
-    </div>
-</div>
+@for (person of (personList$ | async); track person.id) {
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <button type="button" class="btn btn-primary" data-mdb-ripple-init>Button</button>
+        </div>
+    </div>    
+}
