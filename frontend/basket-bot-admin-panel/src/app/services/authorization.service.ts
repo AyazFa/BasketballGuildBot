@@ -30,6 +30,9 @@ export class AuthorizationService {
   }
 
   logout() {
+    if (confirm('Do you really want to logout?')){
+      localStorage.removeItem('token')
+    }
     this.router.navigate(['login'])
   }
 }

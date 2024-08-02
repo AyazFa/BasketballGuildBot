@@ -14,6 +14,6 @@ export class PersonService {
   }
 
   getPerson(id: number) {
-    return this.httpClient.get<Person>('https://localhost:5144/api/adminpanel/person/${id}')
+    return this.httpClient.get<Person>(`https://localhost:5144/api/adminpanel/person/${id}`)
   }
 }

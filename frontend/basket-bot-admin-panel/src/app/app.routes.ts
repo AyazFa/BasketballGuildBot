@@ -12,9 +12,9 @@ export const routes: Routes = [
     { 
         path: 'persons', 
         canActivate: [canActivateGuard],
-        canDeactivate: [canDeactivateGuard],
         component: PersonsComponent 
     },
-    { path: 'persons/:id', component: PersonsCardsComponent },
+    { path: 'person/:id', component: PersonsCardsComponent },
+    { path: 'person', redirectTo: '/persons', pathMatch: 'full'},      
     { path: '**', component: NotFoundComponent}
 ];
