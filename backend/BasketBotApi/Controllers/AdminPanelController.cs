@@ -10,7 +10,7 @@ namespace BasketBotApi.Controllers;
 [Route("/api/[controller]")]
 public class AdminPanelController
 {
-    private List<Person> personList = new List<Person>
+    private readonly List<Person> personList = new List<Person>
     {
         new Person { Id = 1, Name = "Test Player 1" },
         new Person { Id = 2, Name = "Test Player 2" },

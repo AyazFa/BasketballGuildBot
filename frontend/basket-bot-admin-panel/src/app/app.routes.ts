@@ -5,6 +5,7 @@ import { PersonsComponent } from './components/admin/components/persons/persons.
 import { PersonsCardsComponent } from './components/admin/components/persons-cards/persons-cards.component';
 import { canActivateGuard } from './guards/can-activate.guard';
 import { canDeactivateGuard } from './guards/can-deactivate.guard';
+import { personResolver } from './components/admin/resolvers/person.resolver';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent},
@@ -14,7 +15,9 @@ export const routes: Routes = [
         canActivate: [canActivateGuard],
         component: PersonsComponent 
     },
-    { path: 'person/:id', component: PersonsCardsComponent },
+    { path: 'person/:id', component: PersonsCardsComponent, resolve: {
+        person: personResolver
+    } },
     { path: 'person', redirectTo: '/persons', pathMatch: 'full'},      
     { path: '**', component: NotFoundComponent}
 ];
