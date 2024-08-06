@@ -7,7 +7,9 @@ using Microsoft.Extensions.Logging;
 using NLog;
 using NLog.Web;
 
-public class Program
+namespace BasketBotApi;
+
+public static class Program
 {
     public static void Main(string[] args)
     {

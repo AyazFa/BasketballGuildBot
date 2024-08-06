@@ -1,6 +1,6 @@
 ﻿namespace BasketBotApi.Models;
 
-public class AppSettings
+public abstract class AppSettings
 {
     public static string Url { get; set; } = "https://BasketballGuildBot.somee.com";
     

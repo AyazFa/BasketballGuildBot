@@ -1,14 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 using BasketBotApi.Models.Commands;
 using Telegram.Bot;
-using Telegram.Bot.Types.Enums;
-using Telegram.Bot.Types.InputFiles;
 
 namespace BasketBotApi.Models;
 
-public class Bot
+public static class Bot
 {
     private static TelegramBotClient botClient;
     private static List<Command> commandsList;
