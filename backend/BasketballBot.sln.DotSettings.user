@@ -1,6 +1,6 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a15d80de_002Dae58_002D429b_002Db4fa_002D3d93329e9a13/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetTrainingDayTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;NUnit3x::842747E7-775B-449A-B587-0C47AA22C38E::net6.0::BasketBotTests.QuestionHelperTests.GetTrainingDayTest&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::89D73B1A-0CB0-4536-B599-8CA5D9909B96::net6.0::BasketBot.Tests.BasketBotProvidersTests.BasketBotProvidersTests_GetChatMembersFromFile_Test&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

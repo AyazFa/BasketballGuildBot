@@ -7,18 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\BasketBot.Contracts\BasketBot.Contracts.csproj" />
-      <ProjectReference Include="..\BasketBot.Interfaces\BasketBot.Interfaces.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Update="Members.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
     </ItemGroup>
 
 </Project>

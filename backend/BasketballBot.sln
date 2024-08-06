@@ -8,6 +8,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketBot.Services", "Baske
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketBot.Providers", "BasketBot.Providers\BasketBot.Providers.csproj", "{0625BF3C-1210-49B2-875E-DFDD4EAB2260}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketBot.Contracts", "BasketBot.Contracts\BasketBot.Contracts.csproj", "{53153581-BE63-4D97-B03D-665C39775E27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketBot.Interfaces", "BasketBot.Interfaces\BasketBot.Interfaces.csproj", "{64951996-8344-4DD3-BBA9-39B2030376DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketBot.Tests", "BasketBot.Tests\BasketBot.Tests.csproj", "{89D73B1A-0CB0-4536-B599-8CA5D9909B96}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +36,17 @@ Global
 		{0625BF3C-1210-49B2-875E-DFDD4EAB2260}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0625BF3C-1210-49B2-875E-DFDD4EAB2260}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0625BF3C-1210-49B2-875E-DFDD4EAB2260}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53153581-BE63-4D97-B03D-665C39775E27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53153581-BE63-4D97-B03D-665C39775E27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53153581-BE63-4D97-B03D-665C39775E27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53153581-BE63-4D97-B03D-665C39775E27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64951996-8344-4DD3-BBA9-39B2030376DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64951996-8344-4DD3-BBA9-39B2030376DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64951996-8344-4DD3-BBA9-39B2030376DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64951996-8344-4DD3-BBA9-39B2030376DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89D73B1A-0CB0-4536-B599-8CA5D9909B96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89D73B1A-0CB0-4536-B599-8CA5D9909B96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89D73B1A-0CB0-4536-B599-8CA5D9909B96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89D73B1A-0CB0-4536-B599-8CA5D9909B96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
