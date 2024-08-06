@@ -15,10 +15,4 @@
       <ProjectReference Include="..\BasketBot.Interfaces\BasketBot.Interfaces.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <None Update="Members.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-    </ItemGroup>
-
 </Project>

@@ -1,7 +1,6 @@
 ﻿using BasketBot.Contracts.ChatMembers;
 using BasketBot.Interfaces;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 namespace BasketBot.Providers;
 

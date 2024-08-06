@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\BasketBot.Interfaces\BasketBot.Interfaces.csproj" />
+    </ItemGroup>
+
 </Project>

@@ -1,4 +1,7 @@
 using System.IO;
+using BasketBot.Interfaces;
+using BasketBot.Providers;
+using BasketBot.Services;
 using BasketBotApi.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
@@ -17,6 +20,8 @@ public static class Program
         logger.Debug("init main");
         var builder = WebApplication.CreateBuilder(args);
         
+        builder.Services.AddSingleton<IChatMembersFileInterface, ChatMembersFileProvider>();
+        builder.Services.AddSingleton<IPersonService, PersonService>();
         builder.Services.AddCors(options =>
         {
             options.AddDefaultPolicy(
