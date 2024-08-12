@@ -31,5 +31,12 @@ public class AdminPanelController
     public Person GetPerson(long id)
     {
         return personService.GetPersons().FirstOrDefault(p => p.Id == id)!;
-    }    
+    }
+    
+    [HttpPut]
+    [Route("person/{id}")]
+    public Person UpdatePerson(long id)
+    {
+        return personService.GetPersons().FirstOrDefault(p => p.Id == id)!;
+    }     
 }

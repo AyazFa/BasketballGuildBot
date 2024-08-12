@@ -54,7 +54,12 @@ public static class Program
         
         app.UseHttpsRedirection();
         
-        app.UseCors();
+        app.UseHttpsRedirection();  
+
+        app.UseCors(x => x
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());        
         
         app.MapControllers();
         
