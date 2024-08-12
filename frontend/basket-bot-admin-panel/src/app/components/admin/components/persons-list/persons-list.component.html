@@ -1,0 +1,25 @@
+<div class="col-md-6">
+    <h2 class="text-white"> Person List</h2>
+    <table class="table table-bordered table-dark">
+      <thead class="thead-dark">
+      <tr>
+        <th style="display:none">Id</th>
+        <th>#</th>        
+        <th>Name</th>
+        <th>Nickname</th>        
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+        @for (person of (personList$ | async); track person) {
+            <tr>
+                <td style="display:none">{{person.id}}</td>
+                <td>{{$index + 1}}</td>                
+                <td>{{person.name}}</td>
+                <td>{{person.userName}}</td>                
+                <td><button type="button" class="btn btn-primary" [routerLink]="['../person', person.id]" data-mdb-ripple-init>Player Info</button></td>               
+              </tr>
+        }        
+      </tbody>
+    </table>
+  </div>

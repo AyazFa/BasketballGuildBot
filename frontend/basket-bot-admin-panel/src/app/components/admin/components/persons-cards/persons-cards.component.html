@@ -5,8 +5,8 @@
                 <h5 class="card-title">Player Details:</h5>
                 @if (person$ | async; as person) {
                     <section>
-                        <h3>{{person.name}}</h3> 
-                        <h3>{{person.id}}</h3>                                                   
+                        <h3>Id: {{person.id}}</h3>                         
+                        <h3>Name: {{person.name}}</h3>                                                   
                     </section>
                 }
                 <button class="btn btn-primary" [routerLink]="['../']">Go Back</button>
