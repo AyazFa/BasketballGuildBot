@@ -6,7 +6,6 @@ import { Person } from '../Person';
   providedIn: 'root'
 })
 export class PersonService {
-
   constructor(private httpClient: HttpClient) { }
 
   getPersonList() {
@@ -15,5 +14,9 @@ export class PersonService {
 
   getPerson(id: number) {
     return this.httpClient.get<Person>(`https://localhost:5144/api/adminpanel/person/${id}`)
+  }
+
+  updatePerson(person: Person) {
+    return this.httpClient.put<Person>(`https://localhost:5144/api/adminpanel/person/${person.id}`,person);
   }
 }

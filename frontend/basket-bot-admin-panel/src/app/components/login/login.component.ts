@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   submitLogin() {
     this.authorizationService.login(this.loginForm.value).subscribe({
-      next: () => this.router.navigate(['persons']),
+      next: () => this.router.navigate(['persons-list']),
       error: (err) => alert(err.message)
     });
   }
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     });
 
     if (this.authorizationService.isLoggedIn()){
-      this.router.navigate(['persons'])
+      this.router.navigate(['persons-list'])
     }
   }
 }
