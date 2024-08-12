@@ -1,5 +1,5 @@
 <div class="col-md-6">
-    <h2 class="text-white"> Person List</h2>
+    <h2 class="text-white"> Persons List</h2>
     <table class="table table-bordered table-dark">
       <thead class="thead-dark">
       <tr>
@@ -17,7 +17,7 @@
                 <td>{{$index + 1}}</td>                
                 <td>{{person.name}}</td>
                 <td>{{person.userName}}</td>                
-                <td><button type="button" class="btn btn-primary" [routerLink]="['../person', person.id]" data-mdb-ripple-init>Player Info</button></td>               
+                <td><button type="button" class="btn btn-primary" [routerLink]="['../person', person.id]" data-mdb-ripple-init>Person Info</button></td>               
               </tr>
         }        
       </tbody>

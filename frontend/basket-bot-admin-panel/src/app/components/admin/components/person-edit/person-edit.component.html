@@ -2,7 +2,7 @@
     <h2 class="text-center text-white">Edit Person</h2>
     <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label class="text-center text-white" for="name">Name</label>
+        <label class="text-center text-white" for="name">Person Name</label>
         <input type="name" formControlName="name" placeholder="Name" name="name" class="form-control" id="name">       
       </div>
       <button class="btn btn-success">Update person</button>
