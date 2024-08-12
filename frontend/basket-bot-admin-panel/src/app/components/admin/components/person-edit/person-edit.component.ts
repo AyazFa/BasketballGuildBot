@@ -32,6 +32,8 @@ export class PersonEditComponent {
       id: [],
       name: ['', Validators.required],
       userName: ['', Validators.required],
+      position: ['', Validators.required],
+      rating: ['', Validators.required],      
     });
 
     this.personService.getPerson(+this.person.id)
