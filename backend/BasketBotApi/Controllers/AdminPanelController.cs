@@ -21,16 +21,16 @@ public class AdminPanelController
     
     [HttpGet]
     [Route("persons")]
-    public List<Person> GetPersons()
+    public List<Player> GetPersons()
     {
-        return personService.GetPersons();
+        return personService.GetPlayers();
     }
     
     [HttpGet]
     [Route("person/{id}")]
-    public Person GetPerson(long id)
+    public Player GetPerson(long id)
     {
-        return personService.GetPersons().FirstOrDefault(p => p.Id == id)!;
+        return personService.GetPlayers().FirstOrDefault(p => p.Id == id)!;
     }
     
     [HttpPut]

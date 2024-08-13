@@ -1,10 +1,12 @@
 <div class="col-md-6">
-    <h2 class="text-center text-white">Edit Person</h2>
+    <h2 class="text-center text-white">Edit Player</h2>
     <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label class="text-center text-white" for="name">Person Name</label>
-        <input type="name" formControlName="name" placeholder="Name" name="name" class="form-control" id="name">       
+        <label class="text-center text-white" for="position">Player's position:</label>
+        <input type="position" formControlName="position" placeholder="position" name="position" class="form-control" id="position">
+        <label class="text-center text-white" for="rating">Player's rating:</label>
+        <input type="rating" formControlName="rating" placeholder="rating" name="rating" class="form-control" id="rating">                
       </div>
-      <button class="btn btn-success">Update person</button>
+      <button class="btn btn-success">Update player</button>
     </form>
   </div>

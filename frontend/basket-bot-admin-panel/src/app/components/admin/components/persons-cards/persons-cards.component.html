@@ -2,7 +2,7 @@
     <div class="card bg-dark text-white mt-2" style="border-radius: 1rem">
         <div class="card-body p-2 text-center">
             <div>
-                <h5 class="card-title">Person Details:</h5>
+                <h5 class="card-title">Player Details:</h5>
                 @if (person$ | async; as person) {
                     <section>
                         <p>Id: {{person.id}}</p>                         
@@ -11,7 +11,7 @@
                         <p>Rating: {{person.rating}}</p>                                                                           
                     </section>
                 }
-                <button class="btn btn-danger" (click)="editPerson(person$)" style="margin-left: 20px;"> Edit</button>
+                <button class="btn btn-danger" (click)="editPerson(person$)" style="margin-left: 20px;"> Edit player</button>
                 <button class="btn btn-primary" [routerLink]="['../']">Go Back</button>
             </div>
         </div>

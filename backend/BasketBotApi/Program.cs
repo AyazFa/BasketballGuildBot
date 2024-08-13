@@ -22,6 +22,7 @@ public static class Program
         
         builder.Services.AddSingleton<IChatMembersFileInterface, ChatMembersFileProvider>();
         builder.Services.AddSingleton<IPersonService, PersonService>();
+        builder.Services.AddSingleton<IPlayersFileInterface, PlayersFileProvider>();
         builder.Services.AddCors(options =>
         {
             options.AddDefaultPolicy(
