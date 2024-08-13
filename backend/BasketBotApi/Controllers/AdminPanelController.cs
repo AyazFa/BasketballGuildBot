@@ -35,8 +35,8 @@ public class AdminPanelController
     
     [HttpPut]
     [Route("person/{id}")]
-    public Person UpdatePerson(long id)
+    public Person UpdatePerson([FromBody] Player person)
     {
-        return personService.GetPersons().FirstOrDefault(p => p.Id == id)!;
+        return personService.UpdatePerson(person);
     }     
 }

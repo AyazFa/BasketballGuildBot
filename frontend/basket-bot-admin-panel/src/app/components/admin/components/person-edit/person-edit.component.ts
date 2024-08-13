@@ -47,7 +47,7 @@ export class PersonEditComponent {
       .pipe(first())
       .subscribe(
         () => {
-          this.router.navigate(['persons-list']);
+          this.router.navigate([`person/${this.person.id}`]);
         },
         (error: any) => {
           alert(error);

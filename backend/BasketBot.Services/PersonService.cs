@@ -36,4 +36,9 @@ public class PersonService : IPersonService
     {
         return playersFileInterface.GetPlayers();
     }
+
+    public Person UpdatePerson(Player player)
+    {
+        return playersFileInterface.UpdatePlayer(player);
+    }
 }

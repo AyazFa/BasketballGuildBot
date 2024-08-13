@@ -7,4 +7,5 @@ public interface IPersonService
     List<Person> GetPersons();
     
     List<Player> GetPlayers();
+    Person UpdatePerson(Player player);
 }
