@@ -6,10 +6,12 @@ namespace BasketBot.Services;
 public class PersonService : IPersonService
 {
     private IChatMembersFileInterface chatMembersFileInterface;
+    private IPlayersFileInterface playersFileInterface;
 
-    public PersonService(IChatMembersFileInterface chatMembersFileInterface)
+    public PersonService(IChatMembersFileInterface chatMembersFileInterface, IPlayersFileInterface playersFileInterface)
     {
         this.chatMembersFileInterface = chatMembersFileInterface ?? throw new ArgumentNullException(nameof(chatMembersFileInterface));
+        this.playersFileInterface = playersFileInterface ?? throw new ArgumentNullException(nameof(playersFileInterface));
     }
 
     public List<Person> GetPersons()
@@ -28,5 +30,10 @@ public class PersonService : IPersonService
         }
 
         return personList;
+    }
+
+    public List<Player> GetPlayers()
+    {
+        return playersFileInterface.GetPlayers();
     }
 }

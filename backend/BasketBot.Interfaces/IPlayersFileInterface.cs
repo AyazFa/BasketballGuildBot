@@ -2,9 +2,7 @@
 
 namespace BasketBot.Interfaces;
 
-public interface IPersonService
+public interface IPlayersFileInterface
 {
-    List<Person> GetPersons();
-    
     List<Player> GetPlayers();
 }

@@ -20,4 +20,13 @@
       <ProjectReference Include="..\BasketBot.Providers\BasketBot.Providers.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="Members.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Players.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>
