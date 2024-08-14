@@ -8,4 +8,5 @@ public interface IPersonService
     
     List<Player> GetPlayers();
     Person UpdatePerson(Player player);
+    void SaveChatMemberAsPlayer(Person person);
 }

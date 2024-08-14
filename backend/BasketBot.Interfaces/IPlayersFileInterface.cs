@@ -6,4 +6,5 @@ public interface IPlayersFileInterface
 {
     List<Player> GetPlayers();
     Person UpdatePlayer(Player player);
+    void SavePersonAsPlayer(Person person);
 }

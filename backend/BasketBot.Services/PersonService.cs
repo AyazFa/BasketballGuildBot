@@ -41,4 +41,9 @@ public class PersonService : IPersonService
     {
         return playersFileInterface.UpdatePlayer(player);
     }
+
+    public void SaveChatMemberAsPlayer(Person person)
+    {
+        playersFileInterface.SavePersonAsPlayer(person);
+    }
 }

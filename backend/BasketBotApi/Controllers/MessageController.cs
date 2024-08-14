@@ -1,9 +1,13 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
+using BasketBot.Contracts;
+using BasketBot.Interfaces;
 using BasketBotApi.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Telegram.Bot.Types;
+using Telegram.Bot.Types.Enums;
 
 namespace BasketBotApi.Controllers;
 
@@ -11,6 +15,13 @@ namespace BasketBotApi.Controllers;
 [Route("/")]
 public class MessageController : ControllerBase
 {
+    private IPersonService personService;
+
+    public MessageController(IPersonService personService)
+    {
+        this.personService = personService ?? throw new ArgumentNullException(nameof(personService));
+    }
+
     [HttpGet]
     public Task<string> Get() 
     {
@@ -25,6 +36,25 @@ public class MessageController : ControllerBase
 
         var commands = Bot.Commands;
         var message = update.Message;
+
+        if (message.Type == MessageType.ChatMembersAdded)
+        {
+            var chatMember = message.NewChatMembers![0];
+            if (chatMember.IsBot)
+            {
+                return Ok();
+            }
+
+            var person = new Person
+            {
+                Id = chatMember.Id,
+                Name = $"{chatMember.FirstName} {chatMember.LastName}",
+                UserName = chatMember.Username,
+            };
+            personService.SaveChatMemberAsPlayer(person);
+            return Ok();
+        }
+        
         var botClient = await Bot.GetBotClientAsync();
         await SetWebHook();
 

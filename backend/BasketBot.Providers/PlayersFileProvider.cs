@@ -36,6 +36,37 @@ public class PlayersFileProvider : IPlayersFileInterface
         return playerForUpdate;
     }
 
+    public void SavePersonAsPlayer(Person person)
+    {
+        var players = GetPlayersFromFile();
+        
+        if (players.Count == 0)
+        {
+            throw new Exception("Список игроков пустой");
+        }
+        
+        var playerForAdd = players.FirstOrDefault(p => p.Id == person.Id);
+        
+        if (playerForAdd != null)
+        {
+            throw new Exception($"Игрок с идентификатором {person.Id} уже есть в файле с игроками");
+        }
+
+        playerForAdd = new Player
+        {
+            Id = person.Id,
+            Name = person.Name,
+            UserName = person.UserName,
+            Position = "DEFAULT",
+            Rating = 50,
+        };
+        
+        players.Add(playerForAdd);
+        
+        var updatedPlayersList = JsonConvert.SerializeObject(players, Formatting.Indented);
+        File.WriteAllText("Players.json", updatedPlayersList);
+    }
+
     private List<Player> GetPlayersFromFile()
     {
         List<Player>? players = new List<Player>();
