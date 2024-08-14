@@ -4,6 +4,9 @@ using Telegram.Bot.Types;
 
 namespace BasketBotApi.Models.Commands;
 
+/// <summary>
+/// Команда напоминания необходимости взять темную и светлую формы
+/// </summary>
 public class TakeJerseyCommand : Command
 {
     public override string Name => @"/tj";

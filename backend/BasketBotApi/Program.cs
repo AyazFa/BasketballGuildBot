@@ -1,4 +1,7 @@
 using System.IO;
+using BasketBot.Interfaces;
+using BasketBot.Providers;
+using BasketBot.Services;
 using BasketBotApi.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
@@ -7,13 +10,29 @@ using Microsoft.Extensions.Logging;
 using NLog;
 using NLog.Web;
 
-public class Program
+namespace BasketBotApi;
+
+public static class Program
 {
     public static void Main(string[] args)
     {
         var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
         logger.Debug("init main");
         var builder = WebApplication.CreateBuilder(args);
+        
+        builder.Services.AddSingleton<IChatMembersFileInterface, ChatMembersFileProvider>();
+        builder.Services.AddSingleton<IPersonService, PersonService>();
+        builder.Services.AddSingleton<IPlayersFileInterface, PlayersFileProvider>();
+        builder.Services.AddCors(options =>
+        {
+            options.AddDefaultPolicy(
+                policy =>
+                {
+                    policy.WithOrigins("http://localhost:4200");
+                });
+        });
+        
+        builder.Services.AddControllers();
 
         // NLog: Setup NLog for Dependency injection
         builder.Logging.ClearProviders();
@@ -36,7 +55,18 @@ public class Program
         
         app.UseHttpsRedirection();
         
+        app.UseHttpsRedirection();  
+
+        app.UseCors(x => x
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());        
+        
         app.MapControllers();
+        
+        app.MapControllerRoute(
+            name: "default",
+            pattern: "{controller=Home}/{action=Index}/{id?}");        
 
         app.Run();
     }

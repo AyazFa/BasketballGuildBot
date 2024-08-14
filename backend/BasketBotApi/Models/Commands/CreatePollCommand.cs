@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using BasketBotApi.Helpers;
 using Telegram.Bot;
-using Telegram.Bot.Requests;
 using Telegram.Bot.Types;
 
 namespace BasketBotApi.Models.Commands;

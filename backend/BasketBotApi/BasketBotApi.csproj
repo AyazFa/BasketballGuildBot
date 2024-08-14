@@ -16,10 +16,17 @@
     </ItemGroup>
 
     <ItemGroup>
+      <None Include="Members.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
       <None Include="Web.config">
         <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </None>
+      <Content Remove="Players.json" />
+      <None Include="Players.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>
 
@@ -38,6 +45,13 @@
       <Resource Include="Web.config">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Resource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\BasketBot.Contracts\BasketBot.Contracts.csproj" />
+      <ProjectReference Include="..\BasketBot.Interfaces\BasketBot.Interfaces.csproj" />
+      <ProjectReference Include="..\BasketBot.Providers\BasketBot.Providers.csproj" />
+      <ProjectReference Include="..\BasketBot.Services\BasketBot.Services.csproj" />
     </ItemGroup>
 
 </Project>
