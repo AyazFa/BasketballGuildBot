@@ -1,282 +1,156 @@
 [
   {
-    "Position": "SG",
-    "Rating": 45.0,
-    "Id": 314481825,
-    "UserName": "andplv",
-    "Name": "Андрей Полюдов"
-  },
-  {
     "Position": "SF",
-    "Rating": 0.0,
+    "Rating": 75.0,
     "Id": 336057383,
     "UserName": "Riba_ribs",
     "Name": "Ренат Рыба"
   },
   {
     "Position": "SF",
-    "Rating": 0.0,
+    "Rating": 50.0,
     "Id": 386354901,
     "UserName": "Ildar_Fauzetdinov",
     "Name": "Ильдар Фаузетдинов"
   },
   {
     "Position": "SG",
-    "Rating": 0.0,
+    "Rating": 55.0,
     "Id": 1211185526,
     "UserName": "Atbatb123",
     "Name": "Abt "
   },
   {
     "Position": "PG",
-    "Rating": 0.0,
+    "Rating": 55.0,
     "Id": 5125064825,
     "UserName": null,
     "Name": "Равиль "
   },
   {
-    "Position": "SF",
-    "Rating": 0.0,
-    "Id": 444000859,
-    "UserName": "iposhik",
-    "Name": "Iposhik "
-  },
-  {
-    "Position": "PF",
-    "Rating": 0.0,
-    "Id": 2245819,
-    "UserName": "andrei_01101111",
-    "Name": "Андрей "
-  },
-  {
-    "Position": "SF",
-    "Rating": 0.0,
-    "Id": 860206798,
-    "UserName": null,
-    "Name": "Рафик❤️ "
-  },
-  {
-    "Position": "SF",
-    "Rating": 0.0,
-    "Id": 659577301,
-    "UserName": "hask1no",
-    "Name": "Andrew "
-  },
-  {
-    "Position": "PF",
-    "Rating": 0.0,
-    "Id": 481077503,
-    "UserName": "Kirilllllllllllllllllll0",
-    "Name": "Kiri Kiri"
-  },
-  {
-    "Position": "C",
-    "Rating": 0.0,
-    "Id": 950127687,
-    "UserName": "Vadik822",
-    "Name": "Вадим "
-  },
-  {
     "Position": "PG",
-    "Rating": 0.0,
-    "Id": 380828895,
-    "UserName": "Ayrtoon",
-    "Name": "Ayrat Davletshin"
-  },
-  {
-    "Position": "PG",
-    "Rating": 0.0,
+    "Rating": 80.0,
     "Id": 804202141,
     "UserName": "derrickrose11",
     "Name": "Денис Кононов"
   },
   {
     "Position": "SF",
-    "Rating": 0.0,
+    "Rating": 85.0,
     "Id": 5110506781,
     "UserName": "ildar268",
     "Name": "Ильдар "
   },
   {
-    "Position": "PF",
-    "Rating": 0.0,
-    "Id": 617953383,
-    "UserName": "vildan_valeev",
-    "Name": "Dan Danych"
-  },
-  {
     "Position": "SG",
-    "Rating": 0.0,
+    "Rating": 75.0,
     "Id": 138185372,
     "UserName": null,
     "Name": "Timur "
   },
   {
     "Position": "PG",
-    "Rating": 0.0,
+    "Rating": 90.0,
     "Id": 756540723,
     "UserName": null,
     "Name": "Павел "
   },
   {
     "Position": "SF",
-    "Rating": 0.0,
+    "Rating": 75.0,
     "Id": 135728342,
     "UserName": null,
     "Name": "Alexander "
   },
   {
     "Position": "SF",
-    "Rating": 0.0,
+    "Rating": 90.0,
     "Id": 830387378,
     "UserName": null,
     "Name": "Diakon Moss"
   },
   {
-    "Position": "SF",
-    "Rating": 0.0,
-    "Id": 1881860859,
-    "UserName": null,
-    "Name": "User "
-  },
-  {
     "Position": "PF",
-    "Rating": 0.0,
+    "Rating": 80.0,
     "Id": 971788932,
     "UserName": null,
     "Name": "Евгений "
   },
   {
     "Position": "PF",
-    "Rating": 80.0,
+    "Rating": 90.0,
     "Id": 956790495,
     "UserName": "AyazFaizullin",
     "Name": "Ayaz "
   },
   {
     "Position": "C",
-    "Rating": 0.0,
+    "Rating": 90.0,
     "Id": 512847722,
     "UserName": "Artem_Evdokimov",
     "Name": "Artem Evdokimov"
   },
   {
     "Position": "PG",
-    "Rating": 0.0,
+    "Rating": 70.0,
     "Id": 476435393,
     "UserName": "Kiruger1",
     "Name": "Кирилл "
   },
   {
     "Position": "SF",
-    "Rating": 0.0,
+    "Rating": 75.0,
     "Id": 434072869,
     "UserName": "Aleksandrov_Andrei",
     "Name": "Андрей "
   },
   {
-    "Position": "C",
-    "Rating": 0.0,
-    "Id": 311826174,
-    "UserName": null,
-    "Name": "Вениамин Днепровский"
-  },
-  {
     "Position": "PF",
-    "Rating": 0.0,
+    "Rating": 70.0,
     "Id": 187614017,
     "UserName": "lezhnev_v",
     "Name": "Виталий "
   },
   {
     "Position": "PF",
-    "Rating": 0.0,
+    "Rating": 85.0,
     "Id": 452750813,
     "UserName": "dnrglmhnv",
     "Name": "Данияр "
   },
   {
     "Position": "SG",
-    "Rating": 0.0,
+    "Rating": 65.0,
     "Id": 873936481,
     "UserName": "andrreeo",
     "Name": "Andreo "
   },
   {
     "Position": "PG",
-    "Rating": 0.0,
-    "Id": 354523329,
-    "UserName": null,
-    "Name": "A D"
-  },
-  {
-    "Position": "SF",
-    "Rating": 0.0,
-    "Id": 1061928823,
-    "UserName": "el_shev0601",
-    "Name": "Эльдар "
-  },
-  {
-    "Position": "SF",
-    "Rating": 0.0,
-    "Id": 827793564,
-    "UserName": "mikilyanger",
-    "Name": "Александр "
-  },
-  {
-    "Position": "SG",
-    "Rating": 0.0,
-    "Id": 307987373,
-    "UserName": "GustavRafiullin",
-    "Name": "GustavRafiullin "
-  },
-  {
-    "Position": "SF",
-    "Rating": 0.0,
-    "Id": 437898038,
-    "UserName": "MaximSorvin",
-    "Name": "Максим Сорвин"
-  },
-  {
-    "Position": "PG",
-    "Rating": 0.0,
+    "Rating": 65.0,
     "Id": 129927798,
     "UserName": "darq102",
     "Name": "Айдар "
   },
   {
-    "Position": "SF",
-    "Rating": 0.0,
-    "Id": 355006913,
-    "UserName": "pick_six",
-    "Name": "Artur "
-  },
-  {
-    "Position": "SF",
-    "Rating": 0.0,
-    "Id": 705891225,
-    "UserName": "gnr07",
-    "Name": "Нияз Галиев"
-  },
-  {
     "Position": "SG",
-    "Rating": 40.0,
-    "Id": 408138075,
-    "UserName": "knight_errant_in_the_universe",
-    "Name": "III "
-  },
-  {
-    "Position": "SG",
-    "Rating": 0.0,
+    "Rating": 50.0,
     "Id": 138303879,
     "UserName": "vallietz",
     "Name": "Robert "
   },
   {
+    "Position": "SG",
+    "Rating": 75.0,
+    "Id": 6180225778,
+    "UserName": "Abd_Carlton",
+    "Name": "Abdul"
+  },
+  {
     "Position": "SF",
-    "Rating": 0.0,
-    "Id": 917693638,
-    "UserName": "Saloffuck",
-    "Name": "Saloffuck "
+    "Rating": 55.0,
+    "Id": 886846523,
+    "UserName": "GeraBayy",
+    "Name": "Gerabay"
   }
 ]
