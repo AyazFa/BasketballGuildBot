@@ -18,6 +18,6 @@ export class PersonService {
   }
 
   updatePerson(person: Person) {
-    return this.httpClient.put<Person>(`${environment.apiUrl}/api/adminpanel/person/${person.id}`,person);
+    return this.httpClient.put<Person>(`${environment.apiUrl}/adminpanel/person/${person.id}`,person);
   }
 }
