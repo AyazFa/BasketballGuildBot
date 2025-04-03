@@ -16,7 +16,23 @@ public class CreatePollCommand : Command
     public override async Task Execute(Message message, TelegramBotClient client, long chatId)
     {
         var messageText = message.Text;
-        var gymCharCode = messageText![3].ToString();
+        string gymCharCode;
+        try
+        {
+            gymCharCode = messageText![3].ToString();
+        }
+        catch (Exception e)
+        {
+            if (messageText == Name)
+            {
+                gymCharCode = "1";
+            }
+            else
+            {
+                throw new Exception($"Не получилось обработать код зала. Ошибка: {e.Message}");
+            }
+        }
+        
         if (!Int32.TryParse(gymCharCode, out var gymCode))
         {
             throw new Exception("Не получилось определить код зала");
