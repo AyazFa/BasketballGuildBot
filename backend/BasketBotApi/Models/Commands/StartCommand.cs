@@ -16,9 +16,9 @@ public class StartCommand : Command
         return message.Text!.Contains(this.Name);
     }
 
-    public override async Task Execute(Message message, TelegramBotClient botClient)
+    public override async Task Execute(Message message, TelegramBotClient botClient, long chatId)
     {
-        var chatId = message.Chat.Id;
-        await botClient.SendTextMessageAsync(chatId, "Basketball is the best game with ball", parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown);
+        var messageChatId = message.Chat.Id;
+        await botClient.SendTextMessageAsync(messageChatId, "Basketball is the best game with ball", parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown);
     }
 }

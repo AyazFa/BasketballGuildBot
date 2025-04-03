@@ -8,15 +8,24 @@
     }
   },
   "profiles": {
-    "BasketBotApi": {
+    "BasketBotApiDev": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "applicationUrl": "https://localhost:5144",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "development"
       }
     },
+    "BasketBotApiProd": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://BasketballGuildBot.somee.com",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "production"
+      }
+    },    
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
