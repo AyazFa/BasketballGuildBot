@@ -6,6 +6,7 @@ using BasketBot.Interfaces;
 using BasketBotApi.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 
@@ -16,10 +17,12 @@ namespace BasketBotApi.Controllers;
 public class MessageController : ControllerBase
 {
     private IPersonService personService;
+    private AppIdentitySettings appIdentitySettings;
 
-    public MessageController(IPersonService personService)
+    public MessageController(IPersonService personService, IOptions<AppIdentitySettings> appIdentitySettingsAccessor)
     {
         this.personService = personService ?? throw new ArgumentNullException(nameof(personService));
+        appIdentitySettings = appIdentitySettingsAccessor.Value;
     }
 
     [HttpGet]
@@ -62,7 +65,7 @@ public class MessageController : ControllerBase
         {
             if (command.Contains(message))
             {
-                await command.Execute(message, botClient);
+                await command.Execute(message, botClient, appIdentitySettings.GuildChatIds[0]);
                 break;
             }
         }
@@ -72,7 +75,7 @@ public class MessageController : ControllerBase
     private async Task<string> SetWebHook()
     {
         var client = new HttpClient();
-        var queryString = $"https://api.telegram.org/bot{AppSettings.Key}/setwebhook?url={AppSettings.Url}/api/message/update";
+        var queryString = $"https://api.telegram.org/bot{AppSettings.Key}/setwebhook?url={appIdentitySettings.Url}/api/message/update";
         var response = await client.GetAsync(queryString);
         return await response.Content.ReadAsStringAsync();
     }

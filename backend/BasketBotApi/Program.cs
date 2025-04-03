@@ -20,9 +20,9 @@ public static class Program
         logger.Debug("init main");
         var builder = WebApplication.CreateBuilder(args);
         
-        builder.Services.AddSingleton<IChatMembersFileInterface, ChatMembersFileProvider>();
-        builder.Services.AddSingleton<IPersonService, PersonService>();
-        builder.Services.AddSingleton<IPlayersFileInterface, PlayersFileProvider>();
+        builder.Services.AddTransient<IChatMembersFileInterface, ChatMembersFileProvider>();
+        builder.Services.AddTransient<IPersonService, PersonService>();
+        builder.Services.AddTransient<IPlayersFileInterface, PlayersFileProvider>();
         builder.Services.AddCors(options =>
         {
             options.AddDefaultPolicy(
@@ -33,6 +33,8 @@ public static class Program
         });
         
         builder.Services.AddControllers();
+        builder.Services.Configure<AppIdentitySettings>(
+            builder.Configuration.GetSection("AppIdentitySettings"));        
 
         // NLog: Setup NLog for Dependency injection
         builder.Logging.ClearProviders();
@@ -43,7 +45,7 @@ public static class Program
         Bot.GetBotClientAsync();
         
         builder.Services.AddControllers().AddNewtonsoftJson();
-        builder.Configuration.AddJsonFile($"appsettings.development.json", true)
+        builder.Configuration.AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", true)
             .SetBasePath(Directory.GetCurrentDirectory())
             .AddEnvironmentVariables()
             .AddCommandLine(args ?? new string[] { })

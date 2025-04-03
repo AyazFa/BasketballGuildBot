@@ -13,7 +13,7 @@ namespace BasketBotApi.Models.Commands;
 public class CreatePollCommand : Command
 {
     public override string Name => @"/cp";
-    public override async Task Execute(Message message, TelegramBotClient client)
+    public override async Task Execute(Message message, TelegramBotClient client, long chatId)
     {
         var messageText = message.Text;
         var gymCharCode = messageText![3].ToString();
@@ -23,7 +23,7 @@ public class CreatePollCommand : Command
         }
         
         await client.SendPollAsync(
-            chatId: AppSettings.GuildChatIds[0],
+            chatId: chatId,
             isAnonymous: false,
             question: QuestionHelper.GetPollQuestionForPlace((GymType)gymCode, DateTime.Today),
             options: new []
