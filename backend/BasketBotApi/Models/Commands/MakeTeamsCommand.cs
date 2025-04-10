@@ -10,9 +10,14 @@ namespace BasketBotApi.Models.Commands;
 public class MakeTeamsCommand : Command
 {
     public override string Name => "/mt";
-    public override Task Execute(Message message, TelegramBotClient client, long chatId)
+    public override async Task Execute(Message message, TelegramBotClient botClient, long chatId)
     {
-        throw new System.NotImplementedException();
+        var messageText = message.Text;
+        var resultMessage = "\u2757\ufe0fСписок участников опроса был разделен на N команд.\n" +
+                            "Вот как распределились игроки по командам:";
+        await botClient.SendTextMessageAsync(chatId,
+            resultMessage,
+            parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown);
     }
 
     public override bool Contains(Message message)
