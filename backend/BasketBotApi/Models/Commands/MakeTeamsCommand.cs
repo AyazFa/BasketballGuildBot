@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using BasketBotApi.Helpers;
 using Telegram.Bot;
 using Telegram.Bot.Types;
 
@@ -13,6 +14,7 @@ public class MakeTeamsCommand : Command
     public override async Task Execute(Message message, TelegramBotClient botClient, long chatId)
     {
         var messageText = message.Text;
+        var lastPoll = MakeTeamsHelper.GetLastPoll();
         var resultMessage = "\u2757\ufe0fСписок участников опроса был разделен на N команд.\n" +
                             "Вот как распределились игроки по командам:";
         await botClient.SendTextMessageAsync(chatId,

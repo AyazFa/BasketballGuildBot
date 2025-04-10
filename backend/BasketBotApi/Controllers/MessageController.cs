@@ -74,9 +74,19 @@ public class MessageController : ControllerBase
 
     private async Task<string> SetWebHook()
     {
+        return await GetWebHookResponse($"url={appIdentitySettings.Url}/api/message/update");
+    }
+    
+    private async Task<string> RemoveWebHook()
+    {
+        return await GetWebHookResponse("remove");
+    }
+
+    private async Task<string> GetWebHookResponse(string queryPath)
+    {
         var client = new HttpClient();
-        var queryString = $"https://api.telegram.org/bot{AppSettings.Key}/setwebhook?url={appIdentitySettings.Url}/api/message/update";
+        var queryString = $"https://api.telegram.org/bot{AppSettings.Key}/setwebhook?{queryPath}";
         var response = await client.GetAsync(queryString);
-        return await response.Content.ReadAsStringAsync();
+        return await response.Content.ReadAsStringAsync();        
     }
 }
