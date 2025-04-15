@@ -23,5 +23,13 @@ public class BasketBotProvidersTests
         var provider = new PlayersFileProvider();
         var result = provider.GetPlayers();
         Assert.NotNull(result);
+    }
+
+    [Test]
+    public void BasketBotProvidersTests_GetLastPollInfoFromFile_Test()
+    {
+        var provider = new ChatInfoProvider();
+        var result = provider.GetLastPollInfo ();
+        Assert.NotNull(result);
     }    
 }
