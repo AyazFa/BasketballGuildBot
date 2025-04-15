@@ -1,0 +1,42 @@
+﻿{
+  "ok": true,
+  "result": [
+    {
+      "update_id": 768691413,
+      "poll": {
+        "id": "5469795113796374183",
+        "question": "\u0412 \u0447\u0435\u0442\u0432\u0435\u0440\u0433 17.04.2025 \u0432 21:30 \u0442\u0440\u0435\u043d\u0438\u0440\u043e\u0432\u043a\u0430 \u043d\u0430 \u0410\u0421\u0424:",
+        "options": [
+          {
+            "text": "\u0418\u0434\u0443",
+            "voter_count": 7
+          },
+          {
+            "text": "\u041d\u0435 \u0438\u0434\u0443",
+            "voter_count": 4
+          }
+        ],
+        "total_voter_count": 11,
+        "is_closed": false,
+        "is_anonymous": false,
+        "type": "regular",
+        "allows_multiple_answers": false
+      }
+    },
+    {
+      "update_id": 768691414,
+      "poll_answer": {
+        "poll_id": "5469795113796374183",
+        "user": {
+          "id": 5110506781,
+          "is_bot": false,
+          "first_name": "\u0418\u043b\u044c\u0434\u0430\u0440",
+          "username": "ildar268"
+        },
+        "option_ids": [
+          1
+        ]
+      }
+    }
+  ]
+}
