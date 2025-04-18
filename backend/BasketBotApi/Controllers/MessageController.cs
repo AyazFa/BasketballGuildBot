@@ -5,6 +5,7 @@ using BasketBot.Contracts;
 using BasketBot.Interfaces;
 using BasketBotApi.Helpers;
 using BasketBotApi.Models;
+using BasketBotApi.Models.Commands;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -61,12 +62,12 @@ public class MessageController : ControllerBase
         
         var botClient = await Bot.GetBotClientAsync();
         await BotApiRequestsHelper.SetWebHook(appIdentitySettings.Url);
-
+        
         foreach (var command in commands)
         {
             if (command.Contains(message))
             {
-                await command.Execute(message, botClient, appIdentitySettings.GuildChatIds[0]);
+                var responseMessage = await command.Execute(message, botClient, appIdentitySettings.GuildChatIds[0]);
                 break;
             }
         }

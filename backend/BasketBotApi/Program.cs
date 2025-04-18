@@ -23,6 +23,7 @@ public static class Program
         builder.Services.AddTransient<IChatMembersFileInterface, ChatMembersFileProvider>();
         builder.Services.AddTransient<IPersonService, PersonService>();
         builder.Services.AddTransient<IPlayersFileInterface, PlayersFileProvider>();
+        builder.Services.AddTransient<IChatInfoInterface, ChatInfoProvider>();
         builder.Services.AddCors(options =>
         {
             options.AddDefaultPolicy(

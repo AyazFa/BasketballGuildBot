@@ -22,7 +22,7 @@ public class CollectMoneyCommand : Command
         return message.Text!.Contains(this.Name);
     }
 
-    public override async Task Execute(Message message, TelegramBotClient botClient, long chatId)
+    public override async Task<Message> Execute(Message message, TelegramBotClient botClient, long chatId)
     {
         var messageText = message.Text;
         var amount = messageText!.Substring(messageText.IndexOf(Name, StringComparison.Ordinal) + Name.Length);
@@ -30,7 +30,7 @@ public class CollectMoneyCommand : Command
         {
             amount = "330";
         }
-        await botClient.SendTextMessageAsync(chatId,
+        return await botClient.SendTextMessageAsync(chatId,
             $"Скидывайте по {amount}\u20bd @AyazFaizullin на карту Тиньков по номеру телефона +79279277179",
             parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown);
     }      

@@ -13,7 +13,7 @@ namespace BasketBotApi.Models.Commands;
 public class CreatePollCommand : Command
 {
     public override string Name => @"/cp";
-    public override async Task Execute(Message message, TelegramBotClient botClient, long chatId)
+    public override async Task<Message> Execute(Message message, TelegramBotClient botClient, long chatId)
     {
         var messageText = message.Text;
         string gymCharCode;
@@ -38,7 +38,7 @@ public class CreatePollCommand : Command
             throw new Exception("Не получилось определить код зала");
         }
         
-        await botClient.SendPollAsync(
+        var responseMessage = await botClient.SendPollAsync(
             chatId: chatId,
             isAnonymous: false,
             question: QuestionHelper.GetPollQuestionForPlace((GymType)gymCode, DateTime.Today),
@@ -47,6 +47,9 @@ public class CreatePollCommand : Command
                 "Иду",
                 "Не иду"
             });
+        
+        PollHelper.SavePollMessageIdToFile(responseMessage.MessageId);
+        return responseMessage;
     }
 
     public override bool Contains(Message message)

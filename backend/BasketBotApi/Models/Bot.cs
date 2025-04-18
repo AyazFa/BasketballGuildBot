@@ -24,7 +24,8 @@ public static class Bot
         commandsList.Add(new CreatePollCommand()); 
         commandsList.Add(new TakeJerseyCommand());  
         commandsList.Add(new CollectMoneyCommand());
-        commandsList.Add(new MakeTeamsCommand());          
+        commandsList.Add(new MakeTeamsCommand()); 
+        commandsList.Add(new StopPollCommand());  
 
         botClient = new TelegramBotClient(AppSettings.Key);
         return botClient;
