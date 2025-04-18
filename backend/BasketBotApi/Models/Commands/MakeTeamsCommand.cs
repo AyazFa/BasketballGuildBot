@@ -15,8 +15,8 @@ public class MakeTeamsCommand : Command
     {
         var messageText = message.Text;
         var lastPoll = MakeTeamsHelper.GetLastPoll();
-        var resultMessage = "\u2757\ufe0fСписок участников опроса был разделен на N команд.\n" +
-                            "Вот как распределились игроки по командам:";
+        var resultMessage = "Список участников опроса был разделен на N команд.\n" +
+                            $"Вот как распределились игроки по командам: {lastPoll}";
         await botClient.SendTextMessageAsync(chatId,
             resultMessage,
             parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown);

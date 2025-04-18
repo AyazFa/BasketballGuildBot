@@ -3,6 +3,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using BasketBot.Contracts;
 using BasketBot.Interfaces;
+using BasketBotApi.Helpers;
 using BasketBotApi.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -28,7 +29,7 @@ public class MessageController : ControllerBase
     [HttpGet]
     public Task<string> Get() 
     {
-        return SetWebHook();
+        return BotApiRequestsHelper.SetWebHook(appIdentitySettings.Url);
     }
     
     [Route("api/message/update")]
@@ -59,7 +60,7 @@ public class MessageController : ControllerBase
         }
         
         var botClient = await Bot.GetBotClientAsync();
-        await SetWebHook();
+        await BotApiRequestsHelper.SetWebHook(appIdentitySettings.Url);
 
         foreach (var command in commands)
         {
@@ -70,23 +71,5 @@ public class MessageController : ControllerBase
             }
         }
         return Ok();
-    }
-
-    private async Task<string> SetWebHook()
-    {
-        return await GetWebHookResponse($"url={appIdentitySettings.Url}/api/message/update");
-    }
-    
-    private async Task<string> RemoveWebHook()
-    {
-        return await GetWebHookResponse("remove");
-    }
-
-    private async Task<string> GetWebHookResponse(string queryPath)
-    {
-        var client = new HttpClient();
-        var queryString = $"https://api.telegram.org/bot{AppSettings.Key}/setwebhook?{queryPath}";
-        var response = await client.GetAsync(queryString);
-        return await response.Content.ReadAsStringAsync();        
     }
 }

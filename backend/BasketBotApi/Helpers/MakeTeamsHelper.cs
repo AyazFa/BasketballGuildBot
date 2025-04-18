@@ -1,9 +1,14 @@
-﻿namespace BasketBotApi.Helpers;
+﻿using Telegram.Bot;
+
+namespace BasketBotApi.Helpers;
 
 public static class MakeTeamsHelper
 {
     public static string GetLastPoll()
     {
-        return string.Empty;
+        BotApiRequestsHelper.RemoveWebHook();
+        var updates = BotApiRequestsHelper.GetUpdates();
+        BotApiRequestsHelper.SetWebHook(BotApiRequestsHelper.HostAddress);
+        return updates.Result; 
     }
 }
